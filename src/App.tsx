@@ -3,6 +3,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ItemEdit, ItemList } from './todo';
+import HelloWorld from './HelloWorld';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -29,10 +30,7 @@ const App: React.FC = () => (
     <ItemProvider>
       <IonReactRouter>
         <IonRouterOutlet>
-          <Route path="/items" component={ItemList} exact={true} />
-          <Route path="/item" component={ItemEdit} exact={true} />
-          <Route path="/item/:id" component={ItemEdit} exact={true} />
-          <Route exact path="/" render={() => <Redirect to="/items" />} />
+          <HelloWorld/>
         </IonRouterOutlet>
       </IonReactRouter>
     </ItemProvider>
