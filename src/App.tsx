@@ -2,8 +2,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ItemEdit, ItemList } from './todo';
-import HelloWorld from './HelloWorld';
+import Home from './pages/Home'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,17 +22,19 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { ItemProvider } from './todo/ItemProvider';
+import AddRoute from './pages/AddRoute';
+//import { ItemProvider } from './todo/ItemProvider';
 
 const App: React.FC = () => (
   <IonApp>
-    <ItemProvider>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <HelloWorld/>
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </ItemProvider>
+    <IonReactRouter>
+      <IonRouterOutlet>
+        <Route path="/home" component={Home} exact={true}/>
+        <Route path="/add" component={AddRoute} exact={true}/>
+        <Route exact path="/" render={() => <Redirect to="/home"/>}/>
+        
+      </IonRouterOutlet>
+    </IonReactRouter>
   </IonApp>
 );
 
